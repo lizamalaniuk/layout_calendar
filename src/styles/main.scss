@@ -32,14 +32,10 @@ body {
 }
 
 .calendar {
-  width: calc(($cell * $cols) + ($gap * ($cols - 1)));
-}
-
-.calendar__grid {
-  display: grid;
-  grid-template-columns: repeat($cols, $cell);
-  grid-auto-rows: $cell;
+    display: flex;
+  flex-wrap: wrap;
   gap: $gap;
+  width: calc(($cell * $cols) + ($gap * ($cols - 1)) + ($padding * 2));
 }
 
 .calendar__day {
@@ -73,13 +69,7 @@ body {
 
 @each $name, $col in $start-col {
   .calendar--start-day-#{$name} .calendar__day:first-child {
-    grid-column: $col;
-  }
-}
-
-@each $name, $col in $start-col {
-  .calendar--start-day-#{$name} .calendar__day:nth-child(1) {
-    grid-column: $col;
+    margin-left: (($cell + $gap) * ($col - 1));
   }
 }
 
