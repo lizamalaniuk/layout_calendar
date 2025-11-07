@@ -32,9 +32,10 @@ body {
 }
 
 .calendar {
-    display: flex;
+  display: flex;
   flex-wrap: wrap;
   gap: $gap;
+  padding: 0 10px;
   width: calc(($cell * $cols) + ($gap * ($cols - 1)) + ($padding * 2));
 }
 
